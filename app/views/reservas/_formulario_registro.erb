@@ -1,0 +1,17 @@
+<%= form_with model: @reserva, url: evento_reservas_path(@evento), local: true do |f| %>
+  <div>
+    <%= f.label :nombre %>
+    <%= f.text_field :nombre %>
+  </div>
+  <div>
+    <%= f.label :correo %>
+    <%= f.email_field :correo %>
+  </div>
+  <div>
+    <%= f.label :curp %>
+    <%= f.text_field :curp %>
+  </div>
+  <div>
+    <%= f.submit 'Registrar' %>
+  </div>
+<% end %>

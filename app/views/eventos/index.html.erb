@@ -1,0 +1,11 @@
+<h1>Eventos Disponibles</h1>
+<% @eventos.each do |evento| %>
+  <div>
+    <h2><%= evento.nombre %></h2>
+    <p><%= evento.descripcion %></p>
+    <p>Fecha: <%= evento.fecha %></p>
+    <img src="<%= evento.imagen %>" alt="Imagen del evento">
+    <%= link_to 'Registrarse', new_evento_reserva_path(evento) %>
+  </div>
+  <hr>
+<% end %>
