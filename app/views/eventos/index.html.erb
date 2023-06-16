@@ -1,11 +1,19 @@
-<h1>Eventos Disponibles</h1>
-<% @eventos.each do |evento| %>
-  <div>
-    <h2><%= evento.nombre %></h2>
-    <p><%= evento.descripcion %></p>
-    <p>Fecha: <%= evento.fecha %></p>
-    <img src="<%= evento.imagen %>" alt="Imagen del evento">
-    <%= link_to 'Registrarse', new_evento_reserva_path(evento) %>
+<div class="container">
+  <h1>Eventos Disponibles</h1>
+  <div class="row mt-2">
+    <% @eventos.each do |evento| %>
+    <div class="col-md-4">
+      <div class="card">
+        <img src="<%= evento.imagen %>" class="card-img-top" alt="Imagen del evento">
+        <div class="card-body">
+          <h5 class="card-title"><%= evento.nombre %></h5>
+          <p class="card-text"><%= evento.descripcion %></p>
+          <p class="card-text">Fecha: <%= evento.fecha %></p>
+          <%= link_to 'Registrarse', new_evento_reserva_path(evento), class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+    
   </div>
-  <hr>
-<% end %>
+</div>
