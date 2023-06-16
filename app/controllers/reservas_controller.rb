@@ -10,10 +10,10 @@ class ReservasController < ApplicationController
 
     if @reserva.save
       ReservaMailer.confirmacion_reserva(@reserva).deliver_later
-      redirect_to eventos_path, notice: "Reserva creada correctamente."
+      redirect_to eventos_path, notice: "Reservación creada correctamente."
     else
-      flash.now[:error] = 'No se pudo crear la reserva.'
-      render 'new'
+      flash.now[:alert] = 'No se pudo crear la reserva. Por favor, agregue los datos correctamente.'
+      render 'new', status: :unprocessable_entity
     end
   end
 
